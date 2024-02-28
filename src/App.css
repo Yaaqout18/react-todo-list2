@@ -1,0 +1,289 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(../public/images/todo-list.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.App {
+  border: 1px solid #fff;
+  margin: 100px 30%;
+  padding: 50px;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(204, 197, 197, 0.25);
+  max-height: 600px;
+  overflow: auto;
+  padding: 50px;
+  position: relative;
+}
+.App::-webkit-scrollbar {
+  display: none;
+  /* padding-top: 20px; */
+}
+.App .list-top {
+  position: fixed;
+  top: 1;
+  margin-bottom: 120px;
+  margin-left: 80px;
+}
+.App h2 {
+  color: rgb(235, 104, 4);
+  text-shadow: 3px 3px 5px;
+}
+
+.App ul {
+  list-style: "📌     ";
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  margin-left: 20px;
+  margin-top: 150px;
+}
+.App .tasks-num {
+  background-color: #097ce7;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 20%;
+}
+.App input {
+  width: 300px;
+  height: 40px;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 14px;
+  outline: none;
+  border: #fff;
+  box-shadow: 3px 3px 3px #777373;
+  transition: 0.5;
+}
+.App input:focus {
+  transform: scale(1.1);
+}
+.btn {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: #008080;
+  box-shadow: 3px 3px 3px #777373;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.App ul li {
+  word-wrap: break-word;
+  margin: 20px;
+}
+.diff-style {
+  text-decoration: line-through;
+  list-style: "✅      ";
+  color: #61df07;
+}
+.x-icon {
+  margin-right: 20px;
+  transition: 0.5;
+}
+.x-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(3px 3px 3px red);
+}
+.task-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #008080;
+  color: #ffffff;
+  margin: 20px;
+  border: 1px solid #008080;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(252, 252, 252, 0.2);
+}
+/* delet btn */
+.button {
+  height: 50px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+/* btn hover */
+.button:hover {
+  box-shadow: 0.5px 0.5px 150px #252525;
+}
+
+.type1::after {
+  content: "completed";
+  height: 50px;
+  width: 150px;
+  background-color: rgb(255, 15, 15);
+  color: #fff;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translateY(50px);
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.type1::before {
+  content: "Clear🚮";
+  height: 50px;
+  width: 150px;
+  background-color: #fff;
+  color: #008080;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translateY(0px) scale(1.2);
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.type1:hover::after {
+  transform: translateY(0) scale(1.2);
+}
+
+.type1:hover::before {
+  transform: translateY(-50px) scale(0) rotate(120deg);
+}
+/* =========================== #media query . ============= */
+
+@media (max-width: 1320px) {
+  body {
+    background-image: url(../public/images/image\ ipad.jpg);
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+  }
+  .App {
+    /* height: 800px; */
+    border: 1px solid #fff;
+    margin: 100px 10%;
+    padding: 50px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(204, 197, 197, 0.25);
+    max-height: 800px;
+  }
+}
+@media (max-width: 900px) {
+  .App {
+    /* height: 700px; */
+    border: 1px solid #fff;
+    margin: 70px 8%;
+    padding: 30px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(204, 197, 197, 0.25);
+    max-height: 800px;
+  }
+  .App .list-top {
+    margin-left: -45px;
+  }
+  .App ul {
+    margin-top: 180px;
+  }
+}
+@media (max-width: 768px) {
+  .App .list-top {
+    margin-left: 100px;
+  }
+
+  .App input {
+    width: 170px;
+  }
+}
+@media(max-width:568px){
+  .App {
+    /* height: 600px; */
+    border: 1px solid #fff;
+    margin: 70px 8%;
+    padding: 30px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(204, 197, 197, 0.25);
+    max-height: 600px;
+  }
+  .App .list-top {
+    margin-left: -27px;
+  }
+}
+
+@media(max-width:431px){
+  .App {
+    border: 1px solid #fff;
+    margin: 70px 8%;
+    padding: 30px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(204, 197, 197, 0.25);
+    max-height: 750px;
+  }
+}
+@media(max-width:376px){
+  .App {
+    border: 1px solid #fff;
+    margin: 70px 8%;
+    padding: 30px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(204, 197, 197, 0.25);
+    max-height: 520px;
+  }
+}
